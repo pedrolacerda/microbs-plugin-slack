@@ -1,6 +1,6 @@
 {
   "name": "@microbs.io/plugin-slack",
-  "version": "0.1.0-alpha",
+  "version": "0.1.1-alpha",
   "description": "microbs plugin - slack",
   "license": "Apache-2.0",
   "url": "https://microbs.io/docs/plugins/kubernetes/slack/",
@@ -25,8 +25,8 @@
   "engines": {
     "node": ">=14.16.1"
   },
-  "dependencies": {
-    "@microbs.io/core": "^0.1.7-alpha"
+  "peerDependencies": {
+    "@microbs.io/core": "^0.1.8-alpha"
   },
   "devDependencies": {
     "jest": "^26.6.3"
