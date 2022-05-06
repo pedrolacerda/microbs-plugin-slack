@@ -4,15 +4,8 @@
  * Setup Slack channel.
  */
 
-// Third-party packages
-const axios = require('axios')
-
 // Main packages
-const config = require('../../../config')
-const context = require('../../../context')
-const logger = require('../../../logger')
-const state = require('../../../state')
-const utils = require('../../../utils')
+const { config, context, logger, state, utils } = require('@microbs.io/core')
 
 // Plugin packages
 const constants = require('./constants')
@@ -28,7 +21,7 @@ const validate = () => {
   ]
   if (!utils.configHas(requiredFields)) {
     logger.error()
-    logger.error(`You must set these variables in ${context.get('filepath')} to setup Slack:`)
+    logger.error(`You must set these variables in ${context.get('path.config')} to setup Slack:`)
     logger.error()
     logger.error(requiredFields)
     process.exit(1)
@@ -59,15 +52,13 @@ module.exports = async () => {
     logger.info(`Creating Slack channel [name=${channelName}]...`)
     var response
     try {
-      response = await axios.request({
+      response = await utils.http({
         method: 'post',
         url: 'https://slack.com/api/conversations.create',
         params: {
           name: channelName
         },
-        headers: constants.slackApiHeaders(),
-        timeout: 60000,
-        validateStatus: () => true
+        headers: constants.slackApiHeaders()
       })
       logger.debug(response.status)
       logger.debug(response.data)

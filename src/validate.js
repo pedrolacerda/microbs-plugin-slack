@@ -13,7 +13,7 @@ const validateConfig = () => {
     config.init()
   } catch (e) {
     logger.error(e)
-    return [({
+    return [{
       success: false,
       message: 'failed to load config.'
     }]
