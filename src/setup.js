@@ -55,7 +55,7 @@ module.exports = async () => {
       response = await utils.http({
         method: 'post',
         url: 'https://slack.com/api/conversations.create',
-        params: {
+        data: {
           name: channelName
         },
         headers: constants.slackApiHeaders()
