@@ -16,7 +16,7 @@ module.exports.statusSlackChannel = async (channelName) => {
       method: 'get',
       url: 'https://slack.com/api/conversations.list',
       headers: constants.slackApiHeaders(),
-      params: {
+      data: {
         limit: 1000
       }
     })
