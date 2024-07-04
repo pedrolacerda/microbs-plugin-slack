@@ -41,6 +41,16 @@ You must create a [Slack workspace](https://slack.com/get-started#/create)
 and obtain a [bot access token](https://api.slack.com/authentication/token-types#bot)
 before using the `slack` plugin.
 
+The Bot Access Token must have the following permissions:
+- `channels:manage`
+- `groups:write`
+- `im:write`
+- `mpim:write`
+- `channels:read`
+- `groups:read`
+- `mpim:read`
+- `im:read`
+
 ### Install the plugin
 
 microbs installs this plugin automatically when you [install microbs](https://microbs.io/docs/overview/getting-started/).
